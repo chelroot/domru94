@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DAT=`date  +"%d.%m" --date="-1 hour"`
+LL=`date  +"%Y-%m-%d" --date="-1 hour"`
+VVV=`date '+%H' --date="-1 hour"`
+
+#DAT2=`date '+%d'.'%m'`
+LL2=`date  +"%Y-%m-%d"`
+VVV2=`date '+%H'`:01
+#sleep 180
+#VVV2=`date '+%H'`:00
+#LL2=`date  +"%Y-%m-%d"`
+DIRR=/var/www/html/foto
+
+for i in 19-8 19-9 19-10 19-23 230820943-1 vzonov1 vzonov2
+do
+jpeginfo -d $DIRR/$i/$DAT/$VVV/*.jpg >/dev/null 2>&1
+nice -n 16 avconv -f image2 -r 10 -i $DIRR/$i/$DAT/$VVV/%d.jpg $DIRR/$i/$DAT/$VVV.avi
+echo "<a href="$VVV.avi">$VVV.avi</a><br />" >> $DIRR/"$i"/$DAT/index.html
+echo `date  +%H:"%M:%S"`_записал_$VVV/ролик_$i >> /home/vova/d.txt
+done

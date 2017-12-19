@@ -1,0 +1,22 @@
+#!/bin/bash
+
+DATE=`date '+%d'.'%m'`
+
+for i in  19-8 19-9 19-10 19-23 230820943-1 vzonov1 vzonov2
+do
+
+
+#mkdir /var/www/html/"$i"/"$DATE"_foto
+
+mkdir /var/www/html/foto/"$i"/"$DATE"
+echo "<a href=$DATE>$DATE</a><br />"  >> /var/www/html/foto/"$i"/index.html
+##mkdir /var/www/html/"$i"/"$DATE"_video
+#mkdir /var/www/html/"$i"
+
+done
+
+
+
+
+
+

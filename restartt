@@ -1,0 +1,20 @@
+#!/bin/bash
+
+    if
+
+    ps -ax | grep pcp.py |grep python3   >> /dev/null
+
+    then
+#    /home/vova/f7/glavni
+#echo "сервис работает"
+#date >>/root/rabotaet.txt
+killall restartt
+    else
+    /home/vova/pcp.py  >> /dev/null
+#echo  "перезапуск"
+#date >>/root/restart.txt
+killall restartt
+
+    fi
+
+
